@@ -2,6 +2,7 @@ package root;
 
 import com.jayway.restassured.RestAssured;
 import com.jayway.restassured.path.json.JsonPath;
+import com.jayway.restassured.response.Response;
 import com.jayway.restassured.response.ResponseBody;
 import java.util.HashMap;
 import java.util.Map;
@@ -48,6 +49,7 @@ public class Rest{
 		}
 
 	    public static ResponseBody getEmp(Integer id) {
+
 			ResponseBody =
 					given().
 							contentType(JSON).
@@ -65,8 +67,6 @@ public class Rest{
 							delete(RestAssured.baseURI + RestAssured.basePath+id).
 							thenReturn().body();
 			return ResponseBody;
-//	    	path += id;
-//	        return delete(RestAssured.baseURI+RestAssured.basePath);
 	    }
 
 	    public static ResponseBody updateEmp(String Name, String Sal, String Age, Integer id) {

@@ -16,7 +16,7 @@ public class APIValidation {
 		}
 
 		public static <T> T extractJsonData (Response resp, String key) {
-			//String value = String.valueOf(resp.jsonPath().get(key));
+			//String value = resp.jsonPath().get(key);
 			return resp.jsonPath().get(key);
 		}
 
