@@ -1,8 +1,7 @@
 package root;
 
-import com.jayway.restassured.path.json.JsonPath;
 import com.jayway.restassured.response.Response;
-import java.util.*;
+
 import static org.junit.Assert.assertEquals;
 
 public class APIValidation {
@@ -16,9 +15,9 @@ public class APIValidation {
 			assertEquals("Response Body Status Failed!", "success", resp.jsonPath().get("status"));
 		}
 
-		public static String extractJsonData (Response resp, String key) {
-			String value = resp.jsonPath().get(key);
-			return value;
+		public static <T> T extractJsonData (Response resp, String key) {
+			//String value = String.valueOf(resp.jsonPath().get(key));
+			return resp.jsonPath().get(key);
 		}
 
 	}

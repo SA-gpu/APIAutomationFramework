@@ -47,7 +47,7 @@ public class Rest{
 			return ResponseBody;
 		}
 
-	    public static ResponseBody getEmp(String id) {
+	    public static ResponseBody getEmp(Integer id) {
 			ResponseBody =
 					given().
 							contentType(JSON).
@@ -55,11 +55,9 @@ public class Rest{
 							get(RestAssured.baseURI + RestAssured.basePath+id).
 							thenReturn().body();
 			return ResponseBody;
-//			path += id;
-//	        return get(RestAssured.baseURI+RestAssured.basePath);
 	    }
 
-	    public static ResponseBody deleteEmp(String id) {
+	    public static ResponseBody deleteEmp(Integer id) {
 			ResponseBody =
 					given().
 							contentType(JSON).
@@ -71,7 +69,7 @@ public class Rest{
 //	        return delete(RestAssured.baseURI+RestAssured.basePath);
 	    }
 
-	    public static ResponseBody updateEmp(String Name, String Sal, String Age, String id) {
+	    public static ResponseBody updateEmp(String Name, String Sal, String Age, Integer id) {
 			Map<String, Object> jsonAsMap = new HashMap<>();
 			jsonAsMap.put("name", Name);
 			jsonAsMap.put("salary", Sal);
