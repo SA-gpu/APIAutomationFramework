@@ -1,14 +1,13 @@
 package TestSuite;
 
+import APITest.Testcase;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
-import APITest.Post;
 
- 
- 
+
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
-        Post.class,
+        Testcase.class,
 })
 
 public class TestRunner {
