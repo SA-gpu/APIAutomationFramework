@@ -18,8 +18,6 @@ public class Testcase{
 
     @Test
     public void Test01_Post(){
-    	Rest.setBaseURI("http://dummy.restapiexample.com");
-        Rest.setBasePath("/api/v1/create");
         ResponseBody = CreateNewEmp("Test User", "2300", "25");
              System.out.println("Post result:"+ResponseBody.asString());
         checkStatusIs200((Response) ResponseBody);
@@ -28,8 +26,6 @@ public class Testcase{
     }
     @Test
     public void Test02_get(){
-        setBaseURI("http://dummy.restapiexample.com");
-        setBasePath("/api/v1/create");
         ResponseBody = CreateNewEmp("Get Call Test", "2500", "36");
               System.out.println("Post result:"+ResponseBody.asString());
         checkStatusIs200((Response) ResponseBody);
@@ -46,8 +42,6 @@ public class Testcase{
     }
     @Test
     public void Test03_put(){
-        setBaseURI("http://dummy.restapiexample.com");
-        setBasePath("/api/v1/create");
         ResponseBody = CreateNewEmp("Update User", "3620", "34");
             System.out.println("Post result:"+ResponseBody.asString());
         checkStatusIs200((Response) ResponseBody);
@@ -63,8 +57,6 @@ public class Testcase{
     }
     @Test
     public void Test04_delete(){
-        setBaseURI("http://dummy.restapiexample.com");
-        setBasePath("/api/v1/create");
         ResponseBody = CreateNewEmp("delete call", "1200", "25");
             System.out.println("Post result:"+ResponseBody.asString());
         checkStatusIs200((Response) ResponseBody);
