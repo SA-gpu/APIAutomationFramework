@@ -7,6 +7,7 @@ import java.util.Properties;
 public class ConfigReader {
 
     public static String URI, post, get, update, delete;
+
     public static void getConfig() {
         try (InputStream input = ConfigReader.class.getClassLoader().getResourceAsStream("config.properties")) {
             Properties prop = new Properties();
