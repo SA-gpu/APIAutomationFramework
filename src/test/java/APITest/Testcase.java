@@ -18,7 +18,7 @@ public class Testcase{
 
     @Test
     public void test01_Post(){
-        Response response = create("Test", "asdas", 50, true, "Lunch", "2020-02-23","2020-02-24");
+        Response response = post("Test", "asdas", 50, true, "Lunch", "2020-02-23","2020-02-24");
              System.out.println("Post result:"+response.asString());
         checkStatusIs200(response);
         int i= extractJsonData(response, "bookingid");
@@ -26,7 +26,7 @@ public class Testcase{
     }
     @Test
     public void test02_get(){
-        Response response = create("Get Call", "asdas", 520, true, "Lunch", "2020-02-23","2020-02-24");
+        Response response = post("Get Call", "asdas", 520, true, "Lunch", "2020-02-23","2020-02-24");
             System.out.println("Post result:"+response.asString());
         checkStatusIs200(response);
         int i= extractJsonData(response, "bookingid");
@@ -41,21 +41,33 @@ public class Testcase{
     }
     @Test
     public void test03_put(){
-        Response response = create("Get Call", "asdas", 520, true, "Lunch", "2020-02-23","2020-02-24");
+        Response response = post("Create", "User", 24, false, "Booking Create", "2020-02-23","2020-02-24");
             System.out.println("Post result:"+response.asString());
         checkStatusIs200(response);
         int i= extractJsonData(response, "bookingid");
             System.out.println(i);
             System.out.println("Post validation done and id available");
-        ResponseBody = update("User Updated", "15300", "23", i);
-            System.out.println("Update result"+ResponseBody.asString());
-        checkStatusIs200((Response) ResponseBody);
-        checkStatusInBody((Response) ResponseBody);
+        response = put("booking", "User", 120, true, "booking updated", "2020-02-23","2020-02-24", i);
+            System.out.println("Update result: "+response.asString());
+        checkStatusIs200(response);
             System.out.println("Update validation done and Test Completed");
     }
     @Test
-    public void test04_delete(){
-        Response response = create("Delete Call", "asdas", 520, true, "Lunch", "2020-02-23","2020-02-24");
+    public void test04_patch(){
+        Response response = post("Create", "User", 2540, false, "Booking Create", "2020-02-23","2020-02-24");
+        System.out.println("Post result:"+response.asString());
+        checkStatusIs200(response);
+        int i= extractJsonData(response, "bookingid");
+        System.out.println(i);
+        System.out.println("Post validation done and id available");
+        response = patch("", "", 120, true, "partial update", "","2020-02-24", i);
+        System.out.println("Update result: "+response.asString());
+        checkStatusIs200(response);
+        System.out.println("Update validation done and Test Completed");
+    }
+    @Test
+    public void test05_delete(){
+        Response response = post("Delete Call", "asdas", 520, true, "Lunch", "2020-02-23","2020-02-24");
             System.out.println("Post result:"+response.asString());
         checkStatusIs200(response);
         int i= extractJsonData(response, "bookingid");

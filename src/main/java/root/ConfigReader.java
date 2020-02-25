@@ -20,7 +20,7 @@ public class ConfigReader {
             get= prop.getProperty("Get");
             update= prop.getProperty("Update");
             delete= prop.getProperty("Delete");
-            //System.out.println(URI +"\n"+ post +"\n"+ get +"\n"+ update +"\n"+ delete);
+
         } catch (IOException ex) {
             ex.printStackTrace();
         }
