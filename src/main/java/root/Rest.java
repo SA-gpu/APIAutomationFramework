@@ -48,8 +48,8 @@ public class Rest extends ConfigReader{
 	    public static Response delete(Integer id) {
 			ConfigReader.getConfig();
 			String getUrl = ConfigReader.URI +"/"+id;
-			Response getResp = given().auth().preemptive().basic("admin","password123").delete(getUrl);
-			return getResp;
+			Response response = given().auth().preemptive().basic("admin","password123").delete(getUrl);
+			return response;
 	    }
 
 	    public static Response put(String fName, String lName, Integer price, Boolean dPaid, String aNeeds, String cIn, String cOut, Integer id) {
@@ -80,15 +80,29 @@ public class Rest extends ConfigReader{
 			String getUrl = ConfigReader.URI + "/" + id;
 
 			Map<String, Object> APIBody = new HashMap<>();
+				if (fName != ""){
 			APIBody.put("firstname", fName);
+				}
+				if (lName != ""){
 			APIBody.put("lastname", lName);
+				}
+				if (price != 0){
 			APIBody.put("totalprice", price);
+				}
+				if (dPaid != null){
 			APIBody.put("depositpaid", dPaid);
+				}
+				if (aNeeds != ""){
 			APIBody.put("additionalneeds", aNeeds);
+				}
+				if (cIn != "" || cOut != ""){
 			APIBody.put("bookingdates", new HashMap<String, String>() {{
-				put("checkin", cIn);
-				put("checkout", cOut);
+						if (cIn != ""){
+				put("checkin", cIn);}
+						if (cOut != ""){
+				put("checkout", cOut);}
 			}});
+				}
 			RequestSpecBuilder builder = new RequestSpecBuilder();
 			builder.setBody(APIBody);
 			builder.setContentType("application/json");

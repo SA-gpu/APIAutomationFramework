@@ -22,7 +22,7 @@ public class Testcase{
              System.out.println("Post result:"+response.asString());
         checkStatusIs200(response);
         int i= extractJsonData(response, "bookingid");
-             System.out.println(i +"\n"+"Post validation done and Test Completed");
+             System.out.println("Post validation done and Test Completed");
     }
     @Test
     public void test02_get(){
@@ -30,13 +30,11 @@ public class Testcase{
             System.out.println("Post result:"+response.asString());
         checkStatusIs200(response);
         int i= extractJsonData(response, "bookingid");
-            System.out.println(i);
             System.out.println("Post validation done and id available");
         response = get(i);
             System.out.println("Get result:" + response.asString());
         checkStatusIs200(response);
         String j= extractJsonData(response, "firstname");
-            System.out.println(j);
             System.out.println("Get validation done and Test Completed");
     }
     @Test
@@ -45,7 +43,6 @@ public class Testcase{
             System.out.println("Post result:"+response.asString());
         checkStatusIs200(response);
         int i= extractJsonData(response, "bookingid");
-            System.out.println(i);
             System.out.println("Post validation done and id available");
         response = put("booking", "User", 120, true, "booking updated", "2020-02-23","2020-02-24", i);
             System.out.println("Update result: "+response.asString());
@@ -54,16 +51,15 @@ public class Testcase{
     }
     @Test
     public void test04_patch(){
-        Response response = post("Create", "User", 2540, false, "Booking Create", "2020-02-23","2020-02-24");
-        System.out.println("Post result:"+response.asString());
+        Response response = post("Create", "User", 2540, true, "Booking Create", "2020-02-23","2020-02-24");
+            System.out.println("Post result:"+response.asString());
         checkStatusIs200(response);
         int i= extractJsonData(response, "bookingid");
-        System.out.println(i);
-        System.out.println("Post validation done and id available");
-        response = patch("", "", 120, true, "partial update", "","2020-02-24", i);
-        System.out.println("Update result: "+response.asString());
+            System.out.println("Post validation done and id available");
+        response = patch("", "", 250, false, "partial update", "2020-02-24","", i);
+            System.out.println("Update result: "+response.asString());
         checkStatusIs200(response);
-        System.out.println("Update validation done and Test Completed");
+            System.out.println("Update validation done and Test Completed");
     }
     @Test
     public void test05_delete(){
@@ -71,7 +67,6 @@ public class Testcase{
             System.out.println("Post result:"+response.asString());
         checkStatusIs200(response);
         int i= extractJsonData(response, "bookingid");
-            System.out.println(i);
             System.out.println("Post validation done and id available");
         response = delete(i);
         System.out.println("Get result:" + response.asString());
