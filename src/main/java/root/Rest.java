@@ -83,23 +83,23 @@ public class Rest extends ConfigReader{
 				if (fName != ""){
 			APIBody.put("firstname", fName);
 				}
-				if (lName != ""){
+				else if (lName != ""){
 			APIBody.put("lastname", lName);
 				}
-				if (price != 0){
+				else if (price != 0){
 			APIBody.put("totalprice", price);
 				}
-				if (dPaid != null){
+				else if (dPaid != null){
 			APIBody.put("depositpaid", dPaid);
 				}
-				if (aNeeds != ""){
+				else if (aNeeds != ""){
 			APIBody.put("additionalneeds", aNeeds);
 				}
-				if (cIn != "" || cOut != ""){
+				else if (cIn != "" || cOut != ""){
 			APIBody.put("bookingdates", new HashMap<String, String>() {{
 						if (cIn != ""){
 				put("checkin", cIn);}
-						if (cOut != ""){
+						else if (cOut != ""){
 				put("checkout", cOut);}
 			}});
 				}
