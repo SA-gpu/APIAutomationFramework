@@ -80,29 +80,29 @@ public class Rest extends ConfigReader{
 			String getUrl = ConfigReader.URI + "/" + id;
 
 			Map<String, Object> APIBody = new HashMap<>();
-				if (fName != ""){
-			APIBody.put("firstname", fName);
-				}
-				else if (lName != ""){
-			APIBody.put("lastname", lName);
-				}
-				else if (price != 0){
-			APIBody.put("totalprice", price);
-				}
-				else if (dPaid != null){
-			APIBody.put("depositpaid", dPaid);
-				}
-				else if (aNeeds != ""){
-			APIBody.put("additionalneeds", aNeeds);
-				}
-				else if (cIn != "" || cOut != ""){
-			APIBody.put("bookingdates", new HashMap<String, String>() {{
-						if (cIn != ""){
-				put("checkin", cIn);}
-						else if (cOut != ""){
-				put("checkout", cOut);}
-			}});
-				}
+			if (fName != ""){
+				APIBody.put("firstname", fName);
+			}
+			else if (lName != ""){
+				APIBody.put("lastname", lName);
+			}
+			else if (price != 0){
+				APIBody.put("totalprice", price);
+			}
+			else if (dPaid != null){
+				APIBody.put("depositpaid", dPaid);
+			}
+			else if (aNeeds != ""){
+				APIBody.put("additionalneeds", aNeeds);
+			}
+			else if (cIn != "" || cOut != ""){
+				APIBody.put("bookingdates", new HashMap<String, String>() {{
+					if (cIn != ""){
+						put("checkin", cIn);}
+					else if (cOut != ""){
+						put("checkout", cOut);}
+				}});
+			}
 			RequestSpecBuilder builder = new RequestSpecBuilder();
 			builder.setBody(APIBody);
 			builder.setContentType("application/json");
